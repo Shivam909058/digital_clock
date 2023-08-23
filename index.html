@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digital clock</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  
+
+    
+
+
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+
+    </div>
+    <div class="date">
+        <span id="dayname">Day</span>,
+        <span id="month">Month</span>
+        <span id="daynum">00</span>,
+        <span id="year">Year</span>
+    </div>
+    <div class="time">
+        <span id="hour">00</span>:
+        <span id="minutes">00</span>:
+        <span id="seconds">00</span>
+        <span id="period">AM</span> 
+    </div>
+    <script>
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct",  "Nov", "Dec"];
+        const d = new Date();
+        document.getElementById("dayname").innerHTML = days[d.getDay()];
+        document.getElementById("month").innerHTML = months[d.getMonth()];
+        document.getElementById("daynum").innerHTML = d.getDate();
+        document.getElementById("year").innerHTML = d.getFullYear();
+        const deg = 6; // this is for 6 degree means 6 degree for each second 6*60=360
+        const hr = document.querySelector('#hr');
+        const mn = document.querySelector('#mn');
+        const sc = document.querySelector('#sc');
+        setInterval(() => {
+            let time = new Date();
+            let hh = time.getHours();
+            let mm = time.getMinutes();
+            let ss = time.getSeconds();
+            let period = "AM";
+            if(hh > 12){
+                hh = hh - 12;
+                period = "PM";
+            }
+            hh = hh < 10 ? "0" + hh : hh;
+            mm = mm < 10 ? "0" + mm : mm;
+            ss = ss < 10 ? "0" + ss : ss;
+            document.getElementById("hour").innerHTML = hh;
+            document.getElementById("minutes").innerHTML = mm;
+            document.getElementById("seconds").innerHTML = ss;
+            document.getElementById("period").innerHTML = period;
+        })
+
+        setInterval(() => {
+            let time = new Date();
+            let hh = time.getHours() * 30;
+            let mm = time.getMinutes() * deg;
+            let ss = time.getSeconds() * deg;
+            hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+            mn.style.transform = `rotateZ(${mm}deg)`;
+            sc.style.transform = `rotateZ(${ss}deg)`;
+        })
+
+        
+    </script>
+</body>
+</html>

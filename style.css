@@ -1,0 +1,78 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #282c36;
+    color: #fff;
+    background-image: linear-gradient(45deg, #55648a 25%, transparent 25%), linear-gradient(-45deg, #6881c1 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #8170da59 75%), linear-gradient(-45deg, transparent 75%, #2d2b3a 75%);
+}
+
+.clock {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border: 10px solid #f5cccc;
+    border-radius: 60%;
+    margin-bottom: 25px;
+}
+
+.hour, .min, .sec {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 1;
+    left: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hr, .mn, .sc {
+    position: absolute;
+    bottom: 50%;
+    background-color: #f2b9b9;
+    transform-origin: bottom;
+    border-radius: 4px;
+}
+
+.hr {
+    height: 50px;
+    width: 6.5px;
+}
+
+.mn {
+    height: 70px;
+    width: 4px;
+}
+
+.sc {
+    height: 90px;
+    width: 2px;
+    background-color: #e74c3c;
+}
+
+.date {
+    font-size: 1.5rem;
+    font-weight: 100px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.time {
+    font-size: 1.75rem;
+}
+
+#hour, #minutes, #seconds, #period {
+    margin: 0 5px;
+}
+
+#period {
+    font-size: 1.5rem;
+}
+
+
+
